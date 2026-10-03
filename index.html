@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vasileios Pavlopoulos</title>
+<meta name="description" content="Vasileios (Vasilis) Pavlopoulos, Assistant Professor of Management Science at the University of Alabama in Huntsville. Research on artificial intelligence, transformer models and change point analysis.">
+<meta name="author" content="Vasileios Pavlopoulos">
+<meta property="og:title" content="Vasileios Pavlopoulos">
+<meta property="og:description" content="Assistant Professor of Management Science, University of Alabama in Huntsville.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://pavlopoulosvasilis.github.io/">
+<link rel="canonical" href="https://pavlopoulosvasilis.github.io/">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232a3442'/%3E%3Ctext x='32' y='42' font-family='Arial,sans-serif' font-size='26' font-weight='700' fill='%23ffffff' text-anchor='middle'%3EVP%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&display=swap">
+<style>
+/* Layout: a dark portrait hero carrying name, role, research focus and education; below it a single cream column of links, bio and publications. */
+:root{
+  color-scheme: light;
+  --paper:#f3f1ec;        /* page ground, soft cream */
+  --rule:#d9d6ce;         /* hairlines on cream */
+  --ink:#262b33;          /* body text */
+  --ink-soft:#5c636e;     /* secondary text */
+  --heading:#2a3442;      /* section headings, charcoal of the suit */
+  --brand:#4a6da3;        /* steel blue of the tie: wordmark on cream, years, link hover */
+  --hero:#bfbfc4;         /* the photo's studio backdrop */
+  --hero-ink:#ffffff;
+  --shade:17,22,31;       /* rgb of the hero darkening overlay */
+  --sans:"Lato","Segoe UI","Helvetica Neue",Arial,sans-serif;
+  --wrap:1040px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+a:focus-visible,button:focus-visible{outline:2px solid var(--brand);outline-offset:3px}
+.wrap{max-width:var(--wrap);margin-inline:auto;padding-inline:clamp(18px,5vw,40px)}
+
+/* ---------- top bar ---------- */
+.top{position:relative;z-index:3}
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 24px;padding-block:20px}
+.brand{font-weight:900;letter-spacing:.06em;text-transform:uppercase;font-size:19px;text-decoration:none;color:var(--brand)}
+.nav{display:flex;flex-wrap:wrap;gap:6px 22px;list-style:none;margin:0;padding:0}
+.nav a{text-decoration:none;font-weight:700;font-size:16px;color:var(--ink-soft);padding-block:4px;border-bottom:2px solid transparent}
+.nav a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--brand)}
+.nav a:hover{color:var(--ink)}
+/* on the home view the bar floats over the hero */
+body[data-view="research"] .top{position:absolute;inset:0 0 auto 0}
+body[data-view="research"] .brand{color:var(--hero-ink)}
+body[data-view="research"] .nav a{color:rgba(255,255,255,.78)}
+body[data-view="research"] .nav a[aria-current="page"],body[data-view="research"] .nav a:hover{color:var(--hero-ink)}
+body[data-view="research"] .nav a[aria-current="page"]{border-bottom-color:rgba(255,255,255,.7)}
+
+/* ---------- hero ---------- */
+.hero{position:relative;overflow:hidden;background:var(--hero);color:var(--hero-ink);isolation:isolate}
+.hero-photo{position:absolute;right:calc(-1 * clamp(40px, (1280px - 100vw) * .75 + 40px, 300px));bottom:0;height:100%;width:auto;max-width:none;z-index:-2;
+  -webkit-mask-image:linear-gradient(to right,transparent 0,#000 22%);
+  mask-image:linear-gradient(to right,transparent 0,#000 22%)}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;
+  background:
+    linear-gradient(180deg,rgba(var(--shade),.55) 0,rgba(var(--shade),0) 150px),
+    linear-gradient(90deg,rgba(var(--shade),.90) 0%,rgba(var(--shade),.80) 36%,rgba(var(--shade),.42) 62%,rgba(var(--shade),.30) 100%)}
+.hero .wrap{padding-block:120px 54px}
+.hero-text{max-width:540px}
+.hero h1{font-size:clamp(30px,4.6vw,40px);line-height:1.15;font-weight:900;margin:0 0 18px;text-wrap:balance}
+.hero .role{font-style:italic;font-weight:700;font-size:18px;line-height:1.55;margin:0 0 30px}
+.hero h2{font-size:17px;font-weight:700;margin:0 0 8px}
+.hero p{margin:0}
+.sq{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.sq li{position:relative;padding-left:20px}
+.sq li::before{content:"";position:absolute;left:2px;top:.68em;width:6px;height:6px;background:currentColor;opacity:.85}
+.hero .edu{margin-top:30px}
+.edu b{font-weight:700;margin-right:10px}
+
+/* ---------- contact strip ---------- */
+.contact .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px 40px;padding-block:30px;border-bottom:1px solid var(--rule)}
+.links{display:flex;flex-wrap:wrap;gap:10px;list-style:none;margin:0;padding:0;align-content:flex-start}
+.links a{display:inline-block;padding:8px 16px;border:1.5px solid var(--heading);border-radius:999px;font-weight:700;font-size:15px;text-decoration:none;color:var(--heading)}
+.links a:hover{background:var(--heading);color:var(--paper)}
+.reach{font-size:16px;color:var(--ink-soft);display:grid;gap:2px;min-width:0}
+.reach a{color:var(--ink);font-weight:700}
+
+/* ---------- sections ---------- */
+main section.band .wrap{padding-block:46px 8px}
+h2.caps{font-size:clamp(24px,3.4vw,30px);font-weight:900;letter-spacing:.05em;text-transform:uppercase;color:var(--heading);margin:0 0 22px}
+.prose{max-width:66ch;margin:0 0 16px}
+.year-group{display:grid;grid-template-columns:84px minmax(0,1fr);gap:0 24px;padding-block:22px;border-top:1px solid var(--rule)}
+.year{grid-row:1 / span 99;margin:0;font-size:22px;font-weight:900;color:var(--brand);font-variant-numeric:tabular-nums;line-height:1.3}
+.pub{grid-column:2;padding-bottom:22px}
+.pub:last-child{padding-bottom:0}
+.pub h4{margin:0 0 4px;font-size:18.5px;line-height:1.38;font-weight:700;color:var(--heading);text-wrap:pretty}
+.pub p{margin:0;font-size:16px}
+.with{font-style:italic;color:var(--ink-soft)}
+.venue{font-style:italic;font-weight:700}
+.venue a{text-underline-offset:3px}
+.venue a:hover{color:var(--brand)}
+.note{color:var(--brand);font-weight:700;font-size:14.5px !important;letter-spacing:.02em}
+
+.page-head .wrap{padding-block:34px 0}
+.block{padding-block:22px;border-top:1px solid var(--rule)}
+.sub{margin:0 0 12px;font-size:20px;font-weight:900;color:var(--heading)}
+.when{margin:14px 0 6px;font-weight:700;font-style:italic;color:var(--ink-soft);font-size:16px}
+.block .sq{max-width:74ch}
+.courses{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.courses li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:4px 24px}
+.course{font-weight:700;color:var(--heading)}
+.terms{color:var(--ink-soft)}
+
+footer .wrap{padding-block:34px 44px;color:var(--ink-soft);font-size:14.5px;border-top:1px solid var(--rule);margin-top:30px}
+
+@media (max-width:860px){
+  body{font-size:16px}
+  .hero-photo{top:0;bottom:auto;right:50%;transform:translateX(50%);height:340px;
+    -webkit-mask-image:linear-gradient(to top,transparent 0,#000 30%);
+    mask-image:linear-gradient(to top,transparent 0,#000 30%)}
+  .hero{background:#2b2f37}
+  .hero::after{background:
+    linear-gradient(180deg,rgba(var(--shade),.62) 0,rgba(var(--shade),.18) 110px,rgba(var(--shade),.18) 230px,rgba(var(--shade),.92) 340px)}
+  .hero .wrap{padding-block:330px 40px}
+  .year-group{grid-template-columns:minmax(0,1fr);gap:8px}
+  .year{grid-row:auto}
+  .pub{grid-column:1}
+  .courses li{grid-template-columns:minmax(0,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== MENU ===== -->
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#research" data-go="research">Vasilis Pavlopoulos</a>
+    <ul class="nav">
+      <li><a href="#research" data-go="research">Research</a></li>
+      <li><a href="#talks" data-go="talks">Talks</a></li>
+      <li><a href="#teaching" data-go="teaching">Teaching</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <div id="view-research" data-view-panel="research">
+    <!-- ===== BANNER: name, role, research focus, education. The photo is the file portrait.jpg ===== -->
+    <section class="hero">
+      <img class="hero-photo" alt="Portrait of Vasileios Pavlopoulos" src="portrait.jpg">
+      <div class="wrap">
+        <div class="hero-text">
+          <h1>Vasileios (Vasilis) Pavlopoulos</h1>
+          <p class="role">Assistant Professor of Management Science<br>College of Business, University of Alabama in Huntsville</p>
+          <h2>My research focuses on:</h2>
+          <ul class="sq">
+            <li>artificial intelligence, transformer models, large language models, and autonomous AI agents</li>
+            <li>statistical and data-driven methodologies, including change point analysis, time series, and machine learning</li>
+          </ul>
+          <p class="edu"><b>Education:</b>Ph.D. in Business Administration, Operations and Management Science (Washington State University – Carson College of Business)</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== LINKS AND CONTACT DETAILS ===== -->
+    <section class="contact">
+      <div class="wrap">
+        <ul class="links">
+          <li><a href="https://www.uah.edu/business/faculty-staff/vasileios-pavlopoulos">UAH faculty page</a></li>
+          <li><a href="https://scholar.google.com/citations?user=J2jeE8EAAAAJ&amp;hl=en">Google Scholar</a></li>
+          <li><a href="https://CRAN.R-project.org/package=decp">decp on CRAN</a></li>
+        </ul>
+        <div class="reach">
+          <span>Email: <a href="mailto:vp0052@uah.edu">vp0052@uah.edu</a></span>
+          <span>Phone: (256) 824-6598</span>
+          <span>Business Administration Building, Room 370</span>
+          <span>301 Sparkman Drive, Huntsville, AL 35899</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <!-- ===== ABOUT: edit the two paragraphs below ===== -->
+        <h2 class="caps">About</h2>
+        <p class="prose">I am an Assistant Professor of Management Science in the Department of Information Systems, Supply Chain, and Analytics at the University of Alabama in Huntsville. I received my Ph.D. in Business Administration (Operations and Management Science) from Washington State University in 2023, where I also earned an M.S. in Business Administration and an M.S. in Applied Statistics. Before that I trained as an electrical and computer engineer in Patras, Greece.</p>
+        <p class="prose">My research is about artificial intelligence, and transformer models in particular: how they work, where they fail, and what they change for the businesses and people who rely on them. I came to AI as a statistician. My early work, rooted in business analytics, developed methods for detecting change points in time series and multivariate data. That training in careful inference shapes how I study AI today. I build and evaluate attention-based models for business data, audit large language models for bias, and examine how reliable autonomous AI agents are and what AI means for work and employment.</p>
+      </div>
+    </section>
+
+    <section class="band">
+      <div class="wrap">
+        <!-- ===== PUBLICATIONS =====
+             To add a paper, copy one block from <article class="pub"> to </article>,
+             paste it under the right year, and change the title, co-authors, journal and link.
+             To start a new year, copy a whole block from <div class="year-group"> to its closing </div>. -->
+        <h2 class="caps">Publications</h2>
+        <div class="year-group"><h3 class="year">2027</h3>
+<article class="pub">
+<h4>Where Will AI Land? Skill-Based Job Families, the Concentration of AI Exposure, and Early Employment Evidence</h4>
+<p class="with">with Tripti Singh, Abdullah Yildizbasi and Hieu Pham</p>
+<p class="venue">Proceedings of the 60th Hawaii International Conference on System Sciences (2027)</p>
+</article>
+<article class="pub">
+<h4>Agentic Fragility and the Risks of Autonomous Workflows</h4>
+<p class="with">with Hieu Pham, Abdullah Yildizbasi and W. Mok</p>
+<p class="venue">Proceedings of the 60th Hawaii International Conference on System Sciences (2027)</p>
+</article>
+</div>
+<div class="year-group"><h3 class="year">2026</h3>
+<article class="pub">
+<h4>Minimal but Conditional: Auditing Demographic Bias in Large Language Model Résumé Evaluation Across Commercial and Open-Weight Models</h4>
+<p class="venue"><a href="https://doi.org/10.3390/analytics5030030">Analytics (2026)</a></p>
+</article>
+<article class="pub">
+<h4>Which Model Feels Better? A Comparison of Computational Approaches to Emotion Detection in Social Media with Imbalanced Data</h4>
+<p class="with">with Anastasia Vishnevskaya, Jerry Stott and Porismita Borah</p>
+<p class="venue"><a href="https://doi.org/10.3390/informatics13060077">Informatics (2026)</a></p>
+<p class="note">Selected for the journal cover</p>
+</article>
+<article class="pub">
+<h4>Training Data Optimization for Classification via Weighted Dimensionality Reduction and Adaptive Stratified Clustering for Balanced and Imbalanced Data</h4>
+<p class="with">with Hieu Pham, Gaurav Arwade, Yi Tan and Paras Bhatt</p>
+<p class="venue"><a href="https://doi.org/10.1007/s00357-026-09540-x">Journal of Classification (2026)</a></p>
+</article>
+<article class="pub">
+<h4>The Effects of Sports Betting on Casino Gambling in the United States</h4>
+<p class="with">with Ege Can and Mark W. Nichols</p>
+<p class="venue"><a href="https://doi.org/10.1002/soej.70033">Southern Economic Journal (2026)</a></p>
+</article>
+<article class="pub">
+<h4>The Hidden Keywords: An Algorithmic Approach to Uncovering the Value of Negative Keywords in Search Advertising</h4>
+<p class="with">with Hieu Pham, Ravi Patnayakuni, Steven Verderbar and Kylee Bliss</p>
+<p class="venue"><a href="https://doi.org/10.1111/deci.70022">Decision Sciences (2026)</a></p>
+</article>
+<article class="pub">
+<h4>Transforming Student Data into Timely Interventions: A Dynamic Bayesian Network Decision Support System</h4>
+<p class="with">with Yi Tan, Wafa Hakim Orman, Hieu Pham and Ravi Patnayakuni</p>
+<p class="venue"><a href="https://doi.org/10.4018/ijkm.398541">International Journal of Knowledge Management (2026)</a></p>
+</article>
+</div>
+<div class="year-group"><h3 class="year">2025</h3>
+<article class="pub">
+<h4>Decoding Sentiments: Unveiling AI-Generated Content Through Sentiment Analysis and Human Evaluation</h4>
+<p class="with">with Paras Bhatt, Tripti Singh and Hieu Pham</p>
+<p class="venue"><a href="https://doi.org/10.4018/jgim.394505">Journal of Global Information Management (2025)</a></p>
+</article>
+<article class="pub">
+<h4>A Comparative Study of Convolutional Neural Networks and Vision Transformers for Agricultural Image Classification</h4>
+<p class="with">with Hieu Pham, Paras Bhatt, Yi Tan and Ravi Patnayakuni</p>
+<p class="venue"><a href="https://doi.org/10.4018/jdm.396706">Journal of Database Management (2025)</a></p>
+</article>
+</div>
+<div class="year-group"><h3 class="year">2024</h3>
+<article class="pub">
+<h4>Adaptive Parametric Change Point Inference under Covariance Structure Changes</h4>
+<p class="with">with Stergios B. Fotopoulos, Abhishek Kaul and Venkata K. Jandhyala</p>
+<p class="venue"><a href="https://doi.org/10.1007/s00362-023-01495-0">Statistical Papers (2024)</a></p>
+</article>
+<article class="pub">
+<h4>A Multi-Head Attention-Like Feature Selection Approach for Tabular Data</h4>
+<p class="with">with Hieu Pham, Yi Tan, Tripti Singh and Ravi Patnayakuni</p>
+<p class="venue"><a href="https://doi.org/10.1016/j.knosys.2024.112250">Knowledge-Based Systems (2024)</a></p>
+</article>
+<article class="pub">
+<h4>decp: Complete Change Point Analysis</h4>
+<p class="with">with Hieu Pham, Paras Bhatt, Yi Tan and Ravi Patnayakuni</p>
+<p class="venue"><a href="https://CRAN.R-project.org/package=decp">R package, CRAN (2024)</a></p>
+</article>
+</div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== TALKS PAGE: each talk is one <li>...</li> line ===== -->
+  <div id="view-talks" data-view-panel="talks" hidden>
+    <section class="page-head"><div class="wrap"><h2 class="caps">Talks</h2></div></section>
+    <div class="wrap"><section class="block"><h3 class="sub">Invited Talks</h3>
+<ul class="sq">
+<li>International Workshop on Sequential Methodologies (IWSM 2026), American University, Washington, DC, June 1–4, 2026</li>
+<li>University of Georgia, Department of Statistics, October 9–11, 2025</li>
+<li>University of California Santa Cruz, Department of Mathematics and Statistics, February 22–23, 2025</li>
+<li>Washington State University, Department of Mathematics and Statistics, October 10, 2023</li>
+</ul>
+</section>
+<section class="block"><h3 class="sub">INFORMS Annual Meeting</h3>
+<p class="when">2026 · San Francisco, California, November 1–4</p>
+<ul class="sq">
+<li>Agentic Fragility and the Risks of Autonomous Workflows</li>
+<li>The Hidden Keywords: An Algorithmic Approach to Uncovering the Value of Negative Keywords in Search Advertising</li>
+</ul>
+<p class="when">2025 · Atlanta, Georgia, October 26–29</p>
+<ul class="sq">
+<li>Forecasting Seasonal Changepoint Models Utilizing Changepoint Uncertainties</li>
+</ul>
+<p class="when">2024 · Seattle, Washington, October 20–23</p>
+<ul class="sq">
+<li>Reducing Search Advertisement Spending Through a Two-Stage Term Embedding and Optimization Approach</li>
+</ul>
+<p class="when">2023 · Phoenix, Arizona, October 15–18</p>
+<ul class="sq">
+<li>Change Point Estimation, an Evaluation Tool for Computational Detection Algorithms</li>
+</ul>
+</section>
+<section class="block"><h3 class="sub">Decision Sciences Institute Annual Conference</h3>
+<p class="when">2026 · 57th Annual Conference, San Francisco, California, November 21–23</p>
+<ul class="sq">
+<li>Safe Exploration in Online Pricing: Evidence from a Bayesian Shape-Constrained Decision Engine</li>
+<li>A Circular Economy Framework for Aerospace MRO: Barriers, Enablers, and a Research Agenda</li>
+<li>The Reshoring Decision Under Geopolitical Uncertainty: A Real Options Approach for Defense Suppliers</li>
+<li>The Hidden Keywords: An Algorithmic Approach to Uncovering the Value of Negative Keywords in Search Advertising</li>
+<li>Supply Chain Transparency in the Space Economy: Can Blockchain Support Orbital Sustainability Governance?</li>
+<li>Can Commodity Markets Warn Us First? A Time Series Investigation of Critical Mineral Price Signals as a Leading Indicator</li>
+</ul>
+<p class="when">2025 · 56th Annual Conference, Orlando, Florida, November 22–24</p>
+<ul class="sq">
+<li>Forecasting Seasonal Changepoint Models Utilizing Changepoint Uncertainties</li>
+</ul>
+<p class="when">2024 · 55th Annual Conference, Phoenix, Arizona, November 23–25</p>
+<ul class="sq">
+<li>An R Package for Multiple Change Point Analysis of Multivariate Data for Changes in the Covariance Structure</li>
+<li>Decoding Sentiments: Measuring Human Interpretations of AI-Generated Content in Digital Contexts</li>
+</ul>
+<p class="when">2023 · 54th Annual Conference, Atlanta, Georgia, November 18–20</p>
+<ul class="sq">
+<li>Detection and Estimation of Behavioral Changes towards Immigration Over Time within Supranational Organizations</li>
+</ul>
+<p class="when">2022 · 53rd Annual Conference, Houston, Texas, November 19–21</p>
+<ul class="sq">
+<li>Adaptive Parametric Change Point Inference under Covariance Structure Changes</li>
+</ul>
+</section>
+<section class="block"><h3 class="sub">Joint Statistical Meetings</h3>
+<p class="when">2025 · Nashville, Tennessee, August 2–7</p>
+<ul class="sq">
+<li>Forecasting Seasonal Changepoint Models Utilizing Changepoint Uncertainties (invited topic-contributed presentation)</li>
+</ul>
+</section>
+<section class="block"><h3 class="sub">Regional Conferences</h3>
+<ul class="sq">
+<li>The Effects of Sports Betting on Casino Gambling and Lottery. Northeast Decision Sciences Institute (NEDSI) Regional Conference, Boston–Cambridge, Massachusetts, April 4–6, 2024</li>
+<li>Enhancing Statistical Comprehension and Data Communication through Data Visualization for Business Students. Southeast Decision Sciences Institute (SEDSI) Regional Conference, Charleston, South Carolina, February 21–23, 2024</li>
+</ul>
+</section></div>
+  </div>
+
+  <!-- ===== TEACHING PAGE: each course is one <li>...</li> line ===== -->
+  <div id="view-teaching" data-view-panel="teaching" hidden>
+    <section class="page-head"><div class="wrap"><h2 class="caps">Teaching</h2></div></section>
+    <div class="wrap"><section class="block"><h3 class="sub">University of Alabama in Huntsville</h3><ul class="courses">
+<li><span class="course">MSC 470/570 – Prompt Engineering</span><span class="terms">Spring 2026</span></li>
+<li><span class="course">HON 301 – Sports Analytics</span><span class="terms">Spring 2026</span></li>
+<li><span class="course">MSC 469/569 – Visualization for Leadership</span><span class="terms">Fall 2026, Fall 2025, Fall 2023</span></li>
+<li><span class="course">MSC 615 – Decision Modelling</span><span class="terms">Fall 2026, Spring 2025, Spring 2024</span></li>
+<li><span class="course">IS 210 – Introduction to Computer Programming in Business</span><span class="terms">Fall 2026, Spring 2025, Fall 2024, Fall 2023</span></li>
+<li><span class="course">MSC 510 – Logistics Management</span><span class="terms">Fall 2024</span></li>
+</ul></section><section class="block"><h3 class="sub">Washington State University</h3>
+<p class="when">Independent Instructor</p><ul class="sq">
+<li>MGTOP 215 – Business Statistics: Fall 2022, Summer 2021, Summer 2020, Summer 2019</li>
+</ul>
+<p class="when">Lab Instructor</p><ul class="sq">
+<li>MGTOP 215 – Business Statistics: eight semesters between Fall 2017 and Spring 2023</li>
+</ul>
+<p class="when">Teaching Assistant</p><ul class="sq">
+<li>MGTOP 596 – Doctoral Topics (Fall 2021)</li>
+<li>MGTOP 596 – Mathematical Models for Revenue Management (Fall 2022)</li>
+<li>MGTOP 516 – Time Series Analysis (Fall 2022)</li>
+<li>MGTOP 519 – Applied Multivariate Analysis (Fall 2021)</li>
+</ul></section>
+<section class="block"><h3 class="sub">Teaching Interests</h3><p class="prose">Artificial intelligence, prompt engineering, business analytics, business statistics, applied probability and statistics, systems analysis and design, statistical computing, and optimization.</p></section></div>
+  </div>
+</main>
+
+<footer><div class="wrap">© 2026 Vasileios Pavlopoulos</div></footer>
+
+<script>
+(function(){
+  var views=["research","talks","teaching"];
+  function show(v){
+    if(views.indexOf(v)<0) v="research";
+    document.body.setAttribute("data-view",v);
+    document.querySelectorAll("[data-view-panel]").forEach(function(p){p.hidden=(p.getAttribute("data-view-panel")!==v)});
+    document.querySelectorAll(".nav a").forEach(function(a){
+      if(a.getAttribute("data-go")===v) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current");
+    });
+    window.scrollTo(0,0);
+  }
+  document.querySelectorAll("[data-go]").forEach(function(a){
+    a.addEventListener("click",function(e){e.preventDefault();var v=a.getAttribute("data-go");try{history.replaceState(null,"","#"+v)}catch(_){}show(v)});
+  });
+  show((location.hash||"").replace("#",""));
+})();
+</script>
+</body>
+</html>
